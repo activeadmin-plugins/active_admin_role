@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    models:
+      active_admin/managed_resource: リソース
+      active_admin/permission: 権限
+    attributes:
+      base: &base
+        id: ID
+        created_at: 作成日時
+        updated_at: 更新日時
+      managed_resource: &managed_resource
+        class_name: クラス
+        action: 操作
+        name: ページ名称
+      active_admin/managed_resource:
+        <<: *base
+        <<: *managed_resource
+      active_admin/permission:
+        <<: *base
+        <<: *managed_resource
+        managed_resource_id: リソース
+        role: 役割
+        state: 状態
+
+  views:
+    permission:
+      notice:
+        state_changed: "選択した行を%{state}に変更しました"
+        reloaded: "再読込しました"
+      action_item:
+        reload: "再読込"
+
+  active_admin:
+    batch_actions:
+      labels:
+        can: "有効にする"
+        cannot: "無効にする"

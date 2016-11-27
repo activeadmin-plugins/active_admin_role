@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    models:
+      active_admin/managed_resource: Managed Resource
+      active_admin/permission: Permission
+    attributes:
+      base: &base
+        id: ID
+        created_at: Created at
+        updated_at: Updated at
+      managed_resource: &managed_resource
+        class_name: Class Name
+        action: Action
+        name: Name
+      active_admin/managed_resource:
+        <<: *base
+        <<: *managed_resource
+      active_admin/permission:
+        <<: *base
+        <<: *managed_resource
+        managed_resource_id: Managed Resource
+        role: Role
+        state: State
+
+  views:
+    admin_user:
+      notice:
+        assigned: "Selected records have assigned as %{role}"
+    permission:
+      notice:
+        state_changed: "Selected records have changed to %{state}"
+        reloaded: "Reloaded"
+      action_item:
+        reload: "Reload"
+
+  active_admin:
+    batch_actions:
+      labels:
+        can: "Enable"
+        cannot: "Disable"

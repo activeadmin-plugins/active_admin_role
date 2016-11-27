@@ -1,0 +1,9 @@
+Description:
+  Generates the necessary files to get you up and running with ActiveAdminRole gem
+
+Examples:
+  rails generate active_admin_role:install
+
+    This will generate the core migration file, the initializer file and the 'AdminUser' model class.
+
+  rails generate active_admin_role:install --model User
