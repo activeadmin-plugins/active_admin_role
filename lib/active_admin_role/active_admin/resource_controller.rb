@@ -16,6 +16,14 @@ module ActiveAdminRole
       def authorize_access_resource!
         authorize_resource!(active_admin_config.resource_class)
       end
+
+      def active_admin_role_current_user
+        send(active_admin_role_current_user_method_name)
+      end
+
+      def active_admin_role_current_user_method_name
+        ActiveAdminRole.config.current_user_method_name
+      end
     end
   end
 end
