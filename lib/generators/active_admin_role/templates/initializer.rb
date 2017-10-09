@@ -12,6 +12,10 @@ ActiveAdminRole.configure do |config|
   # == User class name | default: 'AdminUser'
   config.user_class_name = "<%= model_class_name %>"
 
+  # [Optional:String]
+  # == method name of #current_user in Controller
+  config.current_user_method_name = "current_<%= model_class_name.underscore.tr('/', '_') %>"
+
   # [Optional:Symbol]
   # == Default permission | default: :cannot
   config.default_state = :cannot
