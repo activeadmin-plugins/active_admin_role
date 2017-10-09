@@ -9,7 +9,6 @@ gem "pry"
 gem "appraisal"
 
 group :development do
-  gem "bundler", "~> 1.13.0"
   gem "rake",    "~> 10.0"
   gem "rubocop", "~> 0.40.0"
 end
