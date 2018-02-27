@@ -1,17 +1,12 @@
-inherit_from:
-  - .ruby-style.yml
+inherit_gem:
+  onkcop:
+    - "config/rubocop.yml"
+    # uncomment if use rails cops
+    # - "config/rails.yml"
+    # uncomment if use rspec cops
+    # - "config/rspec.yml"
 
 AllCops:
-  Exclude:
-    - "bin/*"
-    - "vendor/**/*"
-    - "gemfiles/**/*"
-    - "spec/rails/**/*"
-    - "lib/generators/active_admin_role/templates/**/*"
-    - Gemfile
-    - Rakefile
-  DisplayCopNames: true
   TargetRubyVersion: 2.1
-
-Metrics/LineLength:
-  Enabled: false
+  # uncomment if use rails cops
+  # TargetRailsVersion: 5.1
