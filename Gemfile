@@ -10,7 +10,7 @@ gem "appraisal"
 
 group :development do
   gem "rake",    "~> 10.0"
-  gem "rubocop", "~> 0.40.0"
+  gem "onkcop", require: false
 end
 
 group :test do
