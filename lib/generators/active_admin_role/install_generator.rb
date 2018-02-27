@@ -16,7 +16,7 @@ module ActiveAdminRole
                            default:  "AdminUser"
 
       def copy_initializer_file
-        template "initializer.rb", "config/initializers/active_admin_role.rb"
+        template "initializer.tt", "config/initializers/active_admin_role.rb"
       end
 
       def configure_model
@@ -25,13 +25,13 @@ module ActiveAdminRole
       end
 
       def copy_migration_files
-        migration_template "migration/add_role_to_admin_users.rb", "db/migrate/add_role_to_#{model_class_name.tableize}.rb", migration_class_name: migration_class_name
-        migration_template "migration/create_active_admin_managed_resources.rb", "db/migrate/create_active_admin_managed_resources.rb", migration_class_name: migration_class_name
-        migration_template "migration/create_active_admin_permissions.rb", "db/migrate/create_active_admin_permissions.rb", migration_class_name: migration_class_name
+        migration_template "migration/add_role_to_admin_users.tt", "db/migrate/add_role_to_#{model_class_name.tableize}.rb", migration_class_name: migration_class_name
+        migration_template "migration/create_active_admin_managed_resources.tt", "db/migrate/create_active_admin_managed_resources.rb", migration_class_name: migration_class_name
+        migration_template "migration/create_active_admin_permissions.tt", "db/migrate/create_active_admin_permissions.rb", migration_class_name: migration_class_name
       end
 
       def copy_model_file
-        template "model/ability.rb", "app/models/ability.rb"
+        template "model/ability.tt", "app/models/ability.rb"
       end
 
       def configure_active_admin
@@ -41,7 +41,7 @@ module ActiveAdminRole
       end
 
       def copy_admin_permission_file
-        template "admin/permission.rb", "app/admin/permission.rb"
+        template "admin/permission.tt", "app/admin/permission.rb"
       end
 
       def configure_admin_user_file
