@@ -71,7 +71,7 @@ describe ActiveAdmin::Permission, type: :model do
 
   describe "ClassMethods" do
     let(:managed_resources) do
-      %i(read create update destroy).map do |action|
+      %i[read create update destroy].map do |action|
         ActiveAdmin::ManagedResource.create(
           class_name: "ActiveAdmin::Permission",
           name: "Permission",

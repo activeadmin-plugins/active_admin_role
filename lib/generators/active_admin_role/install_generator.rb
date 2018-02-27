@@ -25,9 +25,15 @@ module ActiveAdminRole
       end
 
       def copy_migration_files
-        migration_template "migration/add_role_to_admin_users.tt", "db/migrate/add_role_to_#{model_class_name.tableize}.rb", migration_class_name: migration_class_name
-        migration_template "migration/create_active_admin_managed_resources.tt", "db/migrate/create_active_admin_managed_resources.rb", migration_class_name: migration_class_name
-        migration_template "migration/create_active_admin_permissions.tt", "db/migrate/create_active_admin_permissions.rb", migration_class_name: migration_class_name
+        migration_template "migration/add_role_to_admin_users.tt",
+                           "db/migrate/add_role_to_#{model_class_name.tableize}.rb",
+                           migration_class_name: migration_class_name
+        migration_template "migration/create_active_admin_managed_resources.tt",
+                           "db/migrate/create_active_admin_managed_resources.rb",
+                           migration_class_name: migration_class_name
+        migration_template "migration/create_active_admin_permissions.tt",
+                           "db/migrate/create_active_admin_permissions.rb",
+                           migration_class_name: migration_class_name
       end
 
       def copy_model_file

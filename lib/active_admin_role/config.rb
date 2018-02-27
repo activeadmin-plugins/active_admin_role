@@ -1,6 +1,7 @@
 module ActiveAdminRole
   class Config
-    attr_accessor :roles, :super_user_roles, :guest_user_roles, :user_class_name, :default_state, :current_user_method_name
+    attr_accessor :roles, :super_user_roles, :guest_user_roles, :user_class_name, :current_user_method_name
+    attr_reader :default_state
 
     def initialize
       @roles            = { guest: 0, support: 1, staff: 2, manager: 3, admin: 99 }
@@ -12,7 +13,7 @@ module ActiveAdminRole
     end
 
     def default_state=(value)
-      @default_state = value.to_s == "can" ? :can : :cannot
+      @default_state = (value.to_s == "can") ? :can : :cannot
     end
   end
 end

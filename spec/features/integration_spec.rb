@@ -3,9 +3,15 @@ require "spec_helper"
 describe "integration test", type: :feature do
   def prepare_permissions
     ActiveAdmin::ManagedResource.reload
-    ActiveAdmin::Permission.support.joins(:managed_resource).merge(ActiveAdmin::ManagedResource.where(class_name: "AdminUser")).all.map(&:can!)
-    ActiveAdmin::Permission.staff.joins(:managed_resource).merge(ActiveAdmin::ManagedResource.where(class_name: "ActiveAdmin::Permission", action: "read")).all.map(&:can!)
-    ActiveAdmin::Permission.manager.joins(:managed_resource).merge(ActiveAdmin::ManagedResource.where(class_name: "ActiveAdmin::Permission")).all.map(&:can!)
+    ActiveAdmin::Permission.support.joins(:managed_resource).merge(
+      ActiveAdmin::ManagedResource.where(class_name: "AdminUser"),
+    ).all.map(&:can!)
+    ActiveAdmin::Permission.staff.joins(:managed_resource).merge(
+      ActiveAdmin::ManagedResource.where(class_name: "ActiveAdmin::Permission", action: "read"),
+    ).all.map(&:can!)
+    ActiveAdmin::Permission.manager.joins(:managed_resource).merge(
+      ActiveAdmin::ManagedResource.where(class_name: "ActiveAdmin::Permission"),
+    ).all.map(&:can!)
   end
 
   before do

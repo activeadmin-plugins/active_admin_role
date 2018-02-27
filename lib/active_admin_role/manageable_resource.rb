@@ -19,27 +19,27 @@ module ActiveAdminRole
 
     private
 
-    def collect_defined_actions(resource)
-      if resource.respond_to?(:defined_actions)
-        defined_actions    = resource.defined_actions
-        member_actions     = resource.member_actions.map(&:name)
-        collection_actions = resource.collection_actions.map(&:name)
-        batch_actions      = resource.batch_actions_enabled? ? [:batch_action] : []
+      def collect_defined_actions(resource)
+        if resource.respond_to?(:defined_actions)
+          defined_actions    = resource.defined_actions
+          member_actions     = resource.member_actions.map(&:name)
+          collection_actions = resource.collection_actions.map(&:name)
+          batch_actions      = resource.batch_actions_enabled? ? [:batch_action] : []
 
-        defined_actions | member_actions | member_actions | collection_actions | batch_actions
-      else
-        resource.page_actions.map(&:name) | [:index]
+          defined_actions | member_actions | member_actions | collection_actions | batch_actions
+        else
+          resource.page_actions.map(&:name) | [:index]
+        end
       end
-    end
 
-    def eval_actions(actions)
-      actions.inject(Set.new) do |result, action|
-        result << (actions_dictionary[action] || action).to_s
+      def eval_actions(actions)
+        actions.inject(Set.new) do |result, action|
+          result << (actions_dictionary[action] || action).to_s
+        end
       end
-    end
 
-    def actions_dictionary
-      @_actions_dictionary ||= ::ActiveAdmin::BaseController::Authorization::ACTIONS_DICTIONARY.dup
-    end
+      def actions_dictionary
+        @_actions_dictionary ||= ::ActiveAdmin::BaseController::Authorization::ACTIONS_DICTIONARY.dup
+      end
   end
 end

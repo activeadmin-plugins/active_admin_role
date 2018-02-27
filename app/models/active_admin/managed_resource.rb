@@ -49,7 +49,7 @@ module ActiveAdmin
       end
 
       def persisted_resources
-        all.map(&:attributes).map { |attribute| attribute.slice(*%w(class_name action name)).symbolize_keys }
+        all.map(&:attributes).map { |attribute| attribute.slice("class_name", "action", "name").symbolize_keys }
       end
 
       def manageable_resources
