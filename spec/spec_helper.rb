@@ -12,7 +12,7 @@ ENV["RAILS_ENV"] = "test"
 require "rails"
 
 ENV["RAILS"] = Rails.version
-ENV["RAILS_ROOT"] = File.expand_path("../rails/rails-#{ENV['RAILS']}", __FILE__)
+ENV["RAILS_ROOT"] = File.expand_path("../rails/rails-#{ENV["RAILS"]}", __FILE__)
 
 # == Create the test app if it doesn't exists
 system "rake setup" unless File.exist?(ENV["RAILS_ROOT"])

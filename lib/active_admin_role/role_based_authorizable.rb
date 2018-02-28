@@ -33,13 +33,13 @@ module ActiveAdminRole
 
       private
 
-      def manageless_roles
-        (super_user_roles + guest_user_roles).flatten.compact
-      end
+        def manageless_roles
+          (super_user_roles + guest_user_roles).flatten.compact
+        end
 
-      def config
-        ::ActiveAdminRole.config
-      end
+        def config
+          ::ActiveAdminRole.config
+        end
     end
   end
 end
