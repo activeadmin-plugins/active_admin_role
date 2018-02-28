@@ -12,3 +12,6 @@ AllCops:
   TargetRubyVersion: 2.1
   # uncomment if use rails cops
   # TargetRailsVersion: 5.1
+  Exclude:
+    - "spec/rails/**/*"
+    - "vendor/bundle/**/*"
