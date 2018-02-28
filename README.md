@@ -74,6 +74,10 @@ ActiveAdminRole.configure do |config|
 end
 ```
 
+## Sample application
+
+https://github.com/yhirano55-playground/active_admin_role_sample
+
 ## License
 
 [MIT License](http://opensource.org/licenses/MIT)
