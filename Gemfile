@@ -5,6 +5,7 @@ gemspec
 gem "activeadmin", "1.0.0.pre4"
 gem "appraisal"
 gem "devise", "~> 4.2.0"
+gem "jquery-ui-rails", "~> 4.2.1"
 gem "pry"
 gem "rails",       "~> 4.2.0"
 
