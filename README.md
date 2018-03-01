@@ -18,6 +18,10 @@ And run `bundle`
 - activeadmin (>= 1.0.0.pre4)
 - cancancan (>= 1.15.0)
 
+## Sample application
+
+https://github.com/yhirano55-playground/active_admin_role_sample
+
 ## Usage
 
 1. Run this command after `rails generate active_admin:install`:
@@ -73,10 +77,6 @@ ActiveAdminRole.configure do |config|
   config.default_state = :cannot
 end
 ```
-
-## Sample application
-
-https://github.com/yhirano55-playground/active_admin_role_sample
 
 ## License
 
