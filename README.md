@@ -14,8 +14,8 @@ And run `bundle`
 
 ## Dependencies
 
-- rails (>= 4.2)
-- activeadmin (>= 1.0.0.pre4)
+- rails (>= 5.0.0)
+- activeadmin (>= 1.2.0)
 - cancancan (>= 1.15.0)
 
 ## Sample application
@@ -35,8 +35,8 @@ $ bin/rails generate active_admin_role:install
   create  db/migrate/20161128090643_create_active_admin_permissions.rb
   create  app/models/ability.rb
     gsub  config/initializers/active_admin.rb
-  create  app/admin/permission.rb
-  insert  app/admin/admin_user.rb
+  create  app/admin/permissions.rb
+  insert  app/admin/admin_users.rb
 
 $ bin/rails db:migrate
 ```
