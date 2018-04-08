@@ -1,5 +1,5 @@
 module ActiveAdminRole
-  module ActiveRecordDsl
+  module Dsl
     def role_based_authorizable
       include ::ActiveAdminRole::RoleBasedAuthorizable
     end

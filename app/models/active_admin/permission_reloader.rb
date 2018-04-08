@@ -17,7 +17,9 @@ module ActiveAdmin
         end
 
         def update_managed_resources
-          manageable_resources.each(&method(:find_or_create_by!))
+          manageable_resources.each do |manageable_resource|
+            ::ActiveAdmin::ManagedResource.find_or_create_by!(manageable_resource)
+          end
         end
 
         def cleanup_managed_resources

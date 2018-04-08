@@ -26,7 +26,7 @@ module ActiveAdminRole
       end
 
       def guest_user_roles
-        @guest_users ||= config.guest_user_roles.try(:map, &:to_s) || []
+        @guest_user_roles ||= config.guest_user_roles.try(:map, &:to_s) || []
       end
 
       private

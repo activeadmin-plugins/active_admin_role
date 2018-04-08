@@ -17,3 +17,4 @@ AllCops:
     - "vendor/bundle/**/*"
     - "gemfiles/vendor/**/*"
     - "gemfiles/.bundle/**/*"
+    - "tmp/**/*"

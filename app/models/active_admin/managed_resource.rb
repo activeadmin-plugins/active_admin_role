@@ -1,6 +1,6 @@
 module ActiveAdmin
   class ManagedResource < ActiveRecord::Base
-    self.table_name = :active_admin_managed_resources
+    self.table_name = "active_admin_managed_resources"
 
     has_many :permissions, dependent: :destroy
     validates :class_name, presence: true

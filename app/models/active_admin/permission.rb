@@ -12,7 +12,7 @@ module ActiveAdmin
     validates :state, presence: true
     validates :managed_resource_id, uniqueness: { scope: :role }
 
-    after_update :celar_cache do
+    after_update do
       self.class.clear_cache
     end
 

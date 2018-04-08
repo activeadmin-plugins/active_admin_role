@@ -1,6 +1,6 @@
 require "set"
 
-module ActiveAdminRole
+module ActiveAdmin
   class ManageableResource
     class << self
       def call

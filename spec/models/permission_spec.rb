@@ -12,13 +12,12 @@ describe ActiveAdmin::Permission, type: :model do
     it { is_expected.to delegate_method(:const).to(:managed_resource) }
     it { is_expected.to delegate_method(:active?).to(:managed_resource) }
     it { is_expected.to delegate_method(:for_active_admin_page?).to(:managed_resource) }
-    it { is_expected.to delegate_method(:clear_cache).to(:class) }
   end
 
   describe "validation" do
-    before { described_class.create(managed_resource_id: 1) }
+    let(:managed_resource) { ActiveAdmin::ManagedResource.create!(class_name: "AdminUser", action: "create", name: "admin_user") }
+    let!(:model) { described_class.create!(managed_resource: managed_resource) }
 
-    it { is_expected.to validate_presence_of(:managed_resource_id) }
     it { is_expected.to validate_presence_of(:role) }
     it { is_expected.to validate_presence_of(:state) }
     it { is_expected.to validate_uniqueness_of(:managed_resource_id).scoped_to(:role) }
@@ -30,10 +29,11 @@ describe ActiveAdmin::Permission, type: :model do
   end
 
   describe "callback" do
-    let!(:model) { described_class.create(managed_resource_id: 1) }
+    let(:managed_resource) { ActiveAdmin::ManagedResource.create!(class_name: "AdminUser", action: "create", name: "admin_user") }
+    let(:model) { described_class.create!(managed_resource: managed_resource) }
 
     it "should run callback #clear_cache after update" do
-      expect(model).to receive(:clear_cache).once
+      expect(model.class).to receive(:clear_cache).once
       model.can!
     end
   end
@@ -70,7 +70,7 @@ describe ActiveAdmin::Permission, type: :model do
   end
 
   describe "ClassMethods" do
-    let(:managed_resources) do
+    before do
       %i[read create update destroy].map do |action|
         ActiveAdmin::ManagedResource.create(
           class_name: "ActiveAdmin::Permission",
@@ -81,28 +81,28 @@ describe ActiveAdmin::Permission, type: :model do
     end
 
     describe ".update_all_from_managed_resources" do
-      subject { described_class.update_all_from_managed_resources(managed_resources) }
+      subject { described_class.update_all_from_managed_resources }
       it { expect { subject }.to change { described_class.count }.to(12).from(0) }
     end
 
     describe ".indexed_cache" do
-      before { described_class.update_all_from_managed_resources(managed_resources) }
+      before { described_class.update_all_from_managed_resources }
       subject { described_class.indexed_cache }
       it { is_expected.to be_a Hash }
     end
 
     describe ".clear_cache" do
       before do
-        described_class.update_all_from_managed_resources(managed_resources)
+        described_class.update_all_from_managed_resources
         described_class.indexed_cache
       end
 
       subject { described_class.clear_cache }
 
       it "should clear cache" do
-        expect(described_class.instance_variable_get(:@_indexed_cache)).to be_a Hash
+        expect(described_class.instance_variable_get(:@indexed_cache)).to be_a Hash
         subject
-        expect(described_class.instance_variable_get(:@_indexed_cache)).to be_nil
+        expect(described_class.instance_variable_get(:@indexed_cache)).to be_nil
       end
     end
   end

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe ActiveAdminRole::ManageableResource do
+describe ActiveAdmin::ManageableResource, type: :model do
   let(:model) { described_class.new }
 
   describe "#call" do
