@@ -1,6 +1,8 @@
 module ActiveAdminRole
   module CanCan
     module Ability
+      extend ActiveSupport::Concern
+
       private
 
         def register_role_based_abilities(user)
