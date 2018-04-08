@@ -15,3 +15,5 @@ AllCops:
   Exclude:
     - "spec/rails/**/*"
     - "vendor/bundle/**/*"
+    - "gemfiles/vendor/**/*"
+    - "gemfiles/.bundle/**/*"

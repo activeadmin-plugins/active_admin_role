@@ -2,16 +2,17 @@
 
 source "https://rubygems.org"
 
-gem "activeadmin", "1.0.0.pre4"
 gem "appraisal"
-gem "devise", "~> 4.2.0"
-gem "pry"
-gem "rails", "~> 4.2.0"
+gem "devise"
+gem "jquery-ui-rails", "~> 4.2.1"
+gem "rails", "~> 5.1.0"
+
+group :development, :test do
+  gem "sqlite3", platforms: :mri
+end
 
 group :development do
-  gem "bundler", "~> 1.13.0"
-  gem "rake", "~> 10.0"
-  gem "rubocop", "~> 0.40.0"
+  gem "onkcop", require: false
 end
 
 group :test do
@@ -20,7 +21,6 @@ group :test do
   gem "poltergeist"
   gem "rspec-rails"
   gem "shoulda-matchers"
-  gem "sqlite3", platforms: :mri
 end
 
 gemspec path: "../"

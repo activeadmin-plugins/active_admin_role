@@ -2,17 +2,17 @@
 
 source "https://rubygems.org"
 
-gem "activeadmin", github: "activeadmin/activeadmin"
 gem "appraisal"
-gem "devise", "~> 4.2.0"
-gem "inherited_resources", github: "activeadmin/inherited_resources"
-gem "pry"
+gem "devise"
+gem "jquery-ui-rails", "~> 4.2.1"
 gem "rails", "~> 5.0.0"
 
+group :development, :test do
+  gem "sqlite3", platforms: :mri
+end
+
 group :development do
-  gem "bundler", "~> 1.13.0"
-  gem "rake", "~> 10.0"
-  gem "rubocop", "~> 0.40.0"
+  gem "onkcop", require: false
 end
 
 group :test do
@@ -21,7 +21,6 @@ group :test do
   gem "poltergeist"
   gem "rspec-rails"
   gem "shoulda-matchers"
-  gem "sqlite3", platforms: :mri
 end
 
 gemspec path: "../"

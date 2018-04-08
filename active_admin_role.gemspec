@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 2.1.0"
 
-  gem.add_dependency "activeadmin", ">= 1.0.0.pre4"
+  gem.add_dependency "activeadmin", ">= 1.2.0"
   gem.add_dependency "cancancan",   ">= 1.15.0"
+  gem.add_dependency "railties",    ">= 5.0.0"
 end

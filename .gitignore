@@ -9,4 +9,5 @@
 /spec/reports/
 /tmp/
 /gemfiles/*.gemfile.lock
+/gemfiles/.bundle/*
 /gemfiles/vendor/
