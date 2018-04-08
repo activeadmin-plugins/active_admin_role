@@ -1,11 +1,10 @@
 module ActiveAdminRole
   module ActiveAdmin
-    module DSL
+    module Dsl
       def role_changeable
         scope(:all, default: true)
 
         controller.resource_class.roles.each_key(&method(:scope))
-
         controller.resource_class.roles.each_key do |role|
           batch_action "assign as #{role}" do |ids|
             formatted_ids = ids - [active_admin_role_current_user.try!(:id).to_s]

@@ -6,9 +6,7 @@ module ActiveAdminRole
     class InstallGenerator < ::Rails::Generators::Base
       include Rails::Generators::Migration
       include ActiveAdminRole::Generators::Helper
-
-      source_root File.expand_path("../templates", __FILE__)
-
+      source_root File.expand_path("./templates", __dir__)
       class_option :model, optional: true,
                            type:     :string,
                            banner:   "model",
@@ -20,7 +18,6 @@ module ActiveAdminRole
       end
 
       def configure_model
-        generate :"active_admin:install #{model_class_name}" unless model_class_name.safe_constantize
         inject_into_model
       end
 
@@ -46,12 +43,12 @@ module ActiveAdminRole
                   "config.authorization_adapter = ActiveAdmin::CanCanAdapter"
       end
 
-      def copy_admin_permission_file
-        template "admin/permission.tt", "app/admin/permission.rb"
+      def copy_admin_permissions_file
+        template "admin/permissions.tt", "app/admin/permissions.rb"
       end
 
-      def configure_admin_user_file
-        inject_into_file "app/admin/#{model_file_path}.rb",
+      def configure_admin_users_file
+        inject_into_file "app/admin/#{model_class_name.tableize}.rb",
                          "  role_changeable\n",
                          after: "ActiveAdmin.register #{model_class_name} do\n"
       end

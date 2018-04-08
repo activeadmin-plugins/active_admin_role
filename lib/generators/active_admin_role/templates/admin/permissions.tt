@@ -62,7 +62,7 @@ ActiveAdmin.register ::ActiveAdmin::Permission, as: "Permission" do
     selectable_column
     column :role
     column(:state) do |record|
-      status_tag(record.state, record.can? ? :ok : nil)
+      status_tag(record.state, class: record.can? ? "completed ok" : "null", label: record.state)
     end
     column :action
     column :name

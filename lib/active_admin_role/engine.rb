@@ -4,11 +4,14 @@ module ActiveAdminRole
   class Engine < ::Rails::Engine
     initializer "active_admin_role" do
       ActiveSupport.on_load :active_record do
-        ActiveRecord::Base.send :extend, ::ActiveAdminRole::Model
+        extend ActiveAdminRole::Dsl
       end
 
       ActiveSupport.on_load :after_initialize do
-        ::ActiveAdmin::ResourceController.send :include, ::ActiveAdminRole::ActiveAdmin::ResourceController
+        require "active_admin_role/active_admin/dsl"
+        require "active_admin_role/active_admin/resource_controller"
+        ::ActiveAdmin::DSL.send :include, ActiveAdminRole::ActiveAdmin::Dsl
+        ::ActiveAdmin::ResourceController.send :include, ActiveAdminRole::ActiveAdmin::ResourceController
       end
     end
   end

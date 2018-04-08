@@ -1,13 +1,11 @@
 module ActiveAdminRole
   module RoleBasedAuthorizable
-    def self.included(klass)
-      klass.class_eval do
-        extend ClassMethods
+    extend ActiveSupport::Concern
 
-        enum role: config.roles
-        delegate :super_user_roles, :guest_user_roles, to: :class
-        validates :role, presence: true
-      end
+    included do
+      enum role: config.roles
+      delegate :super_user_roles, :guest_user_roles, to: :class
+      validates :role, presence: true
     end
 
     def super_user?
@@ -18,17 +16,17 @@ module ActiveAdminRole
       role.in?(guest_user_roles)
     end
 
-    module ClassMethods
+    class_methods do
       def manageable_roles
-        @_manageable_roles ||= roles.except(*manageless_roles)
+        @manageable_roles ||= roles.except(*manageless_roles)
       end
 
       def super_user_roles
-        @_super_user_roles ||= config.super_user_roles.try(:map, &:to_s) || []
+        @super_user_roles ||= config.super_user_roles.try(:map, &:to_s) || []
       end
 
       def guest_user_roles
-        @_guest_users ||= config.guest_user_roles.try(:map, &:to_s) || []
+        @guest_user_roles ||= config.guest_user_roles.try(:map, &:to_s) || []
       end
 
       private

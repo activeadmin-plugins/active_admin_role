@@ -1,7 +1,13 @@
 require "set"
 
-module ActiveAdminRole
+module ActiveAdmin
   class ManageableResource
+    class << self
+      def call
+        new.call
+      end
+    end
+
     def call
       namespace = ::ActiveAdmin.application.default_namespace
       ::ActiveAdmin.application.namespaces[namespace].resources.inject([]) do |result, resource|

@@ -1,12 +1,11 @@
-appraise "rails42" do
-  gem "rails",       "~> 4.2.0"
-  gem "devise",      "~> 4.2.0"
-  gem "activeadmin", "1.0.0.pre4"
+appraise "5.0" do
+  gem "rails", "~> 5.0.0"
 end
 
-appraise "rails50" do
-  gem "rails",       "~> 5.0.0"
-  gem "devise",      "~> 4.2.0"
-  gem "inherited_resources", github: "activeadmin/inherited_resources"
-  gem "activeadmin",         github: "activeadmin/activeadmin"
+appraise "5.1" do
+  gem "rails", "~> 5.1.0"
+end
+
+appraise "5.2" do
+  gem "rails", "~> 5.2.0.rc2"
 end

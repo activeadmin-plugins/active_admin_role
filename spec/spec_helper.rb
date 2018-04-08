@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH << File.expand_path("../support", __FILE__)
+$LOAD_PATH << File.expand_path("support", __dir__)
 
-ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
 
 require "bundler"
 Bundler.setup
@@ -12,7 +12,7 @@ ENV["RAILS_ENV"] = "test"
 require "rails"
 
 ENV["RAILS"] = Rails.version
-ENV["RAILS_ROOT"] = File.expand_path("../rails/rails-#{ENV["RAILS"]}", __FILE__)
+ENV["RAILS_ROOT"] = File.expand_path("../tmp/rails-#{ENV["RAILS"]}", __dir__)
 
 # == Create the test app if it doesn't exists
 system "rake setup" unless File.exist?(ENV["RAILS_ROOT"])
@@ -39,7 +39,6 @@ RSpec.configure do |config|
   end
 
   config.order = :random
-
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
