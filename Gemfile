@@ -6,7 +6,7 @@ gemspec
 
 gem "appraisal"
 gem "devise"
-gem "jquery-ui-rails", "~> 4.2.1"
+gem "jquery-ui-rails", "~> 6.0.1"
 gem "rails", ">= 5.0.0"
 
 group :development, :test do
