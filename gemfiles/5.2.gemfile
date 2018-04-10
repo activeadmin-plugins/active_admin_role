@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem "appraisal"
 gem "devise"
 gem "jquery-ui-rails", "~> 4.2.1"
-gem "rails", "~> 5.2.0.rc2"
+gem "rails", "~> 5.2.0"
 
 group :development, :test do
   gem "sqlite3", platforms: :mri
