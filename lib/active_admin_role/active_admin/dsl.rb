@@ -21,3 +21,5 @@ module ActiveAdminRole
     end
   end
 end
+
+::ActiveAdmin::DSL.send :include, ActiveAdminRole::ActiveAdmin::Dsl if defined?(::ActiveAdmin)

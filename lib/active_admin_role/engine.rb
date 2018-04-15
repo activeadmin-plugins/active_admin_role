@@ -1,4 +1,5 @@
 require "rails/engine"
+require "active_admin_role/active_admin/dsl"
 
 module ActiveAdminRole
   class Engine < ::Rails::Engine
@@ -8,9 +9,7 @@ module ActiveAdminRole
       end
 
       ActiveSupport.on_load :after_initialize do
-        require "active_admin_role/active_admin/dsl"
         require "active_admin_role/active_admin/resource_controller"
-        ::ActiveAdmin::DSL.send :include, ActiveAdminRole::ActiveAdmin::Dsl
         ::ActiveAdmin::ResourceController.send :include, ActiveAdminRole::ActiveAdmin::ResourceController
       end
     end
