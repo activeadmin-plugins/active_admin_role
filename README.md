@@ -1,5 +1,7 @@
 # ActiveAdminRole
 
+*CAUTION: Sorry, this gem is not maintained now. I'm looking for maintainer has motivation for apps using ActiveAdmin. Please somebody help me. [See more](https://github.com/yhirano55/active_admin_role/issues/19)*
+
 Role based authorization with CanCanCan for Active Admin
 
 ## Installation
