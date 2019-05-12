@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
 
   gem.summary       = "Role based authorization with CanCanCan for Active Admin"
   gem.description   = gem.summary
-  gem.homepage      = "https://github.com/yhirano55/active_admin_role"
+  gem.homepage      = "https://github.com/activeadmin-plugins/active_admin_role"
   gem.license       = "MIT"
 
   gem.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
