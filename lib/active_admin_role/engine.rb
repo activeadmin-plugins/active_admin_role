@@ -1,4 +1,5 @@
 require "rails/engine"
+require "active_admin_role/dsl"
 require "active_admin_role/active_admin/dsl"
 
 module ActiveAdminRole
