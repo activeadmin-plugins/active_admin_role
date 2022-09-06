@@ -20,4 +20,4 @@ Metrics/AbcSize:
 Naming/MemoizedInstanceVariableName:
   Exclude:
     - 'app/models/active_admin/manageable_resource.rb'
-    - 'app/models/concerns/active_admin_role/role_based_authorizable.rb'
+    - 'lib/active_admin_role/role_based_authorizable.rb'
