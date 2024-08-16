@@ -3,7 +3,12 @@ module ActiveAdminRole
     extend ActiveSupport::Concern
 
     included do
-      enum role: config.roles
+      if Rails::VERSION::STRING >= '7.0.0'
+        enum :role, config.roles
+      else
+        enum role: config.roles
+      end
+
       delegate :super_user_roles, :guest_user_roles, to: :class
       validates :role, presence: true
     end
