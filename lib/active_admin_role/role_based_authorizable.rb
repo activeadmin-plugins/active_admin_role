@@ -3,7 +3,7 @@ module ActiveAdminRole
     extend ActiveSupport::Concern
 
     included do
-      enum role: config.roles
+      enum :role, config.roles
       delegate :super_user_roles, :guest_user_roles, to: :class
       validates :role, presence: true
     end
