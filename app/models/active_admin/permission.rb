@@ -3,7 +3,7 @@ module ActiveAdmin
     self.table_name = :active_admin_permissions
     role_based_authorizable
 
-    enum state: { cannot: 0, can: 1 }
+    enum :state, { cannot: 0, can: 1 }
 
     belongs_to :managed_resource
     delegate :class_name, :action, :name, :const, :active?, :for_active_admin_page?, to: :managed_resource
