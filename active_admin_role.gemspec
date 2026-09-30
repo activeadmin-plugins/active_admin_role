@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   # reach consumers until it is named here. The reject form needs a new
   # pattern every time the repo grows one, and that is how the Appraisal matrices under gemfiles/
   # ended up published in the first place.
-  gem.files         = `git ls-files -z -- lib app config README.md LICENSE.txt`.split("\x0")
+  gem.files         = `git ls-files -z -- lib app vendor config exe bin README.md LICENSE.txt`.split("\x0")
   gem.require_paths = ["lib"]
 
   gem.required_ruby_version = ">= 2.2.2"
