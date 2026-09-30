@@ -11,7 +11,9 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/activeadmin-plugins/active_admin_role"
   gem.license       = "MIT"
 
-  gem.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
+  # `gemfiles/` are Appraisal matrices and `.github/` is the issue
+  # template — both dev-only.
+  gem.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features|gemfiles|\.github)/}) }
   gem.require_paths = ["lib"]
 
   gem.required_ruby_version = ">= 2.2.2"
