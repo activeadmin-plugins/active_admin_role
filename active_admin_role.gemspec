@@ -11,9 +11,12 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/activeadmin-plugins/active_admin_role"
   gem.license       = "MIT"
 
-  # `gemfiles/` are Appraisal matrices and `.github/` is the issue
-  # template — both dev-only.
-  gem.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features|gemfiles|\.github)/}) }
+  # Whitelist, not a reject list: a new directory in the repo does not
+  # reach consumers until it is named here. The reject form needs a new
+  # pattern every time the repo grows one, and that is how the Appraisal matrices under gemfiles/
+  # ended up published in the first place.
+  gem.files         = Dir["lib/**/*", "app/**/*", "config/**/*",
+                          "README.md", "LICENSE.txt"]
   gem.require_paths = ["lib"]
 
   gem.required_ruby_version = ">= 2.2.2"
